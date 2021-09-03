@@ -55,7 +55,7 @@ const config: HardhatUserConfig = {
       },
     },
     mainnet: {
-      url: "https://mainnet.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://mainnet.infura.io/v3/ae4d742b6f8445bc8817988d18ff3b65", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },

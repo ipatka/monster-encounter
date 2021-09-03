@@ -389,9 +389,9 @@ contract MonsterBook is IMonsterBook {
             string(
                 abi.encodePacked(
                     monsterName[0],
-                    " The",
+                    " The ",
                     monsterName[1],
-                    " of The",
+                    " of The ",
                     monsterName[2]
                 )
             );

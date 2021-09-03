@@ -99,7 +99,7 @@ contract MonsterMaps is ERC721Enumerable, ReentrancyGuard, Ownable {
                     Strings.toString(ySpace),
                     'px">',
                     monsterBook.getName(monsterId),
-                    ' #: ',
+                    ' # ',
                     Strings.toString(monsterId),
                     "</text>",
                     monsterIdSVGs
