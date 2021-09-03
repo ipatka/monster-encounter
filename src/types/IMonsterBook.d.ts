@@ -19,7 +19,7 @@ import { BytesLike } from "@ethersproject/bytes";
 import { Listener, Provider } from "@ethersproject/providers";
 import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 
-interface MonsterBookInterface extends ethers.utils.Interface {
+interface IMonsterBookInterface extends ethers.utils.Interface {
   functions: {
     "getAlignment(uint256)": FunctionFragment;
     "getArmor(uint256)": FunctionFragment;
@@ -79,7 +79,7 @@ interface MonsterBookInterface extends ethers.utils.Interface {
   events: {};
 }
 
-export class MonsterBook extends Contract {
+export class IMonsterBook extends Contract {
   connect(signerOrProvider: Signer | Provider | string): this;
   attach(addressOrName: string): this;
   deployed(): Promise<this>;
@@ -90,7 +90,7 @@ export class MonsterBook extends Contract {
   removeAllListeners(eventName: EventFilter | string): this;
   removeListener(eventName: any, listener: Listener): this;
 
-  interface: MonsterBookInterface;
+  interface: IMonsterBookInterface;
 
   functions: {
     getAlignment(

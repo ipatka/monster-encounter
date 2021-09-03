@@ -2,32 +2,32 @@ import { ethers } from "hardhat";
 
 
 import { MonsterBook } from '../src/types/MonsterBook'
+import { MonsterEncounters } from '../src/types/MonsterEncounters'
+import { MonsterGenerator } from '../src/types/MonsterGenerator'
 
 
 async function main() {
   const accounts = await ethers.getSigners();
   
   const MonsterBook = await ethers.getContractFactory('MonsterBook')
+  const MonsterGenerator = await ethers.getContractFactory('MonsterGenerator')
+  const MonsterEncounters = await ethers.getContractFactory('MonsterEncounters')
   const monsterBook = (await MonsterBook.deploy()) as MonsterBook
+  const monsterGenerator = (await MonsterGenerator.deploy(monsterBook.address)) as MonsterGenerator
+  const monsterEncounters = (await MonsterEncounters.deploy(monsterBook.address)) as MonsterEncounters
 
-  await monsterBook.discoverEncounters(200)
-  const uri = await monsterBook.tokenURI(200)
+  await monsterEncounters.discoverEncounters(200)
+  const uri = await monsterEncounters.tokenURI(200)
   console.log({uri})
   
-  const monsterIds = await monsterBook.getMonsterIds(200)
+  const monsterIds = await monsterEncounters.getMonsterIds(200)
 
   for (let index = 0; index < monsterIds.length; index++) {
-    const monsterURI = await monsterBook.monsterURI(monsterIds[index])
+    await monsterGenerator.claim(monsterIds[index])
+    const monsterURI = await monsterGenerator.tokenURI(monsterIds[index])
     console.log({monsterURI})
     
   }
-  
-  // const Greeter = await ethers.getContractFactory("Greeter");
-  // const greeter = await Greeter.deploy("Hello, Hardhat!");
-
-  // await greeter.deployed();
-
-  // console.log("Greeter deployed to:", greeter.address);
 }
 
 main()
