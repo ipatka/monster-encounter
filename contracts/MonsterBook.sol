@@ -150,7 +150,7 @@ contract MonsterBook is ERC721Enumerable, ReentrancyGuard, Ownable {
                                 mapName,
                                 '", "image":"',
                                 image,
-                                '", "description": "Monsters are (pseudo) randomly placed on a map at the waypoints along an adventurers journey. All data is stored on chain. Use Monsters however you want and pair with your favourite adventure Loot."'
+                                '", "description": "Monsters are (pseudo) randomly placed on a map at the waypoints along an adventurers journey. All data is stored on chain. Use Monsters however you want and pair with your favourite adventure Loot."}'
                             )
                         )
                     )
