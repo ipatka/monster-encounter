@@ -2,29 +2,29 @@ import { ethers } from "hardhat";
 
 
 import { MonsterBook } from '../src/types/MonsterBook'
-import { MonsterEncounters } from '../src/types/MonsterEncounters'
-import { MonsterGenerator } from '../src/types/MonsterGenerator'
+import { MonsterMaps } from '../src/types/MonsterMaps'
+import { MonsterSpawn } from '../src/types/MonsterSpawn'
 
 
 async function main() {
   const accounts = await ethers.getSigners();
   
   const MonsterBook = await ethers.getContractFactory('MonsterBook')
-  const MonsterGenerator = await ethers.getContractFactory('MonsterGenerator')
-  const MonsterEncounters = await ethers.getContractFactory('MonsterEncounters')
+  const MonsterSpawn = await ethers.getContractFactory('MonsterSpawn')
+  const MonsterMaps = await ethers.getContractFactory('MonsterMaps')
   const monsterBook = (await MonsterBook.deploy()) as MonsterBook
-  const monsterGenerator = (await MonsterGenerator.deploy(monsterBook.address)) as MonsterGenerator
-  const monsterEncounters = (await MonsterEncounters.deploy(monsterBook.address)) as MonsterEncounters
+  const monsterSpawn = (await MonsterSpawn.deploy(monsterBook.address)) as MonsterSpawn
+  const monsterMaps = (await MonsterMaps.deploy(monsterBook.address)) as MonsterMaps
 
-  await monsterEncounters.discoverEncounters(200)
-  const uri = await monsterEncounters.tokenURI(200)
+  await monsterMaps.discoverEncounters(201)
+  const uri = await monsterMaps.tokenURI(201)
   console.log({uri})
   
-  const monsterIds = await monsterEncounters.getMonsterIds(200)
+  const monsterIds = await monsterMaps.getMonsterIds(201)
 
   for (let index = 0; index < monsterIds.length; index++) {
-    await monsterGenerator.claim(monsterIds[index])
-    const monsterURI = await monsterGenerator.tokenURI(monsterIds[index])
+    await monsterSpawn.claim(monsterIds[index])
+    const monsterURI = await monsterSpawn.tokenURI(monsterIds[index])
     console.log({monsterURI})
     
   }

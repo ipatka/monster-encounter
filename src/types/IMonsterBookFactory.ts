@@ -25,7 +25,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getAlignment",
+    name: "getAction1",
     outputs: [
       {
         internalType: "string",
@@ -44,7 +44,26 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getArmor",
+    name: "getAction2",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "monsterId",
+        type: "uint256",
+      },
+    ],
+    name: "getAlignment",
     outputs: [
       {
         internalType: "string",
@@ -82,6 +101,25 @@ const _abi = [
         type: "uint256",
       },
     ],
+    name: "getLocomotion",
+    outputs: [
+      {
+        internalType: "string",
+        name: "",
+        type: "string",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint256",
+        name: "monsterId",
+        type: "uint256",
+      },
+    ],
     name: "getName",
     outputs: [
       {
@@ -101,7 +139,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getSenses",
+    name: "getSize",
     outputs: [
       {
         internalType: "string",
@@ -120,7 +158,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getSubtype",
+    name: "getSpecialAbility",
     outputs: [
       {
         internalType: "string",
@@ -139,7 +177,7 @@ const _abi = [
         type: "uint256",
       },
     ],
-    name: "getType",
+    name: "getWeakness",
     outputs: [
       {
         internalType: "string",

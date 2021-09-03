@@ -21,26 +21,36 @@ import { FunctionFragment, EventFragment, Result } from "@ethersproject/abi";
 
 interface MonsterBookInterface extends ethers.utils.Interface {
   functions: {
+    "getAction1(uint256)": FunctionFragment;
+    "getAction2(uint256)": FunctionFragment;
     "getAlignment(uint256)": FunctionFragment;
-    "getArmor(uint256)": FunctionFragment;
     "getLanguage(uint256)": FunctionFragment;
+    "getLocomotion(uint256)": FunctionFragment;
     "getName(uint256)": FunctionFragment;
-    "getSenses(uint256)": FunctionFragment;
-    "getSubtype(uint256)": FunctionFragment;
-    "getType(uint256)": FunctionFragment;
+    "getSize(uint256)": FunctionFragment;
+    "getSpecialAbility(uint256)": FunctionFragment;
+    "getWeakness(uint256)": FunctionFragment;
     "random(string)": FunctionFragment;
   };
 
+  encodeFunctionData(
+    functionFragment: "getAction1",
+    values: [BigNumberish]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "getAction2",
+    values: [BigNumberish]
+  ): string;
   encodeFunctionData(
     functionFragment: "getAlignment",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "getArmor",
+    functionFragment: "getLanguage",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "getLanguage",
+    functionFragment: "getLocomotion",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
@@ -48,32 +58,43 @@ interface MonsterBookInterface extends ethers.utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "getSenses",
+    functionFragment: "getSize",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "getSubtype",
+    functionFragment: "getSpecialAbility",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "getType",
+    functionFragment: "getWeakness",
     values: [BigNumberish]
   ): string;
   encodeFunctionData(functionFragment: "random", values: [string]): string;
 
+  decodeFunctionResult(functionFragment: "getAction1", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getAction2", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getAlignment",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(functionFragment: "getArmor", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "getLanguage",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "getLocomotion",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "getName", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getSenses", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getSubtype", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "getType", data: BytesLike): Result;
+  decodeFunctionResult(functionFragment: "getSize", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "getSpecialAbility",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "getWeakness",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "random", data: BytesLike): Result;
 
   events: {};
@@ -93,6 +114,34 @@ export class MonsterBook extends Contract {
   interface: MonsterBookInterface;
 
   functions: {
+    getAction1(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
+    "getAction1(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
+    getAction2(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
+    "getAction2(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
     getAlignment(
       monsterId: BigNumberish,
       overrides?: CallOverrides
@@ -101,20 +150,6 @@ export class MonsterBook extends Contract {
     }>;
 
     "getAlignment(uint256)"(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<{
-      0: string;
-    }>;
-
-    getArmor(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<{
-      0: string;
-    }>;
-
-    "getArmor(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
@@ -135,6 +170,20 @@ export class MonsterBook extends Contract {
       0: string;
     }>;
 
+    getLocomotion(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
+    "getLocomotion(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<{
+      0: string;
+    }>;
+
     getName(
       monsterId: BigNumberish,
       overrides?: CallOverrides
@@ -149,42 +198,42 @@ export class MonsterBook extends Contract {
       0: string;
     }>;
 
-    getSenses(
+    getSize(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
       0: string;
     }>;
 
-    "getSenses(uint256)"(
+    "getSize(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
       0: string;
     }>;
 
-    getSubtype(
+    getSpecialAbility(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
       0: string;
     }>;
 
-    "getSubtype(uint256)"(
+    "getSpecialAbility(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
       0: string;
     }>;
 
-    getType(
+    getWeakness(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
       0: string;
     }>;
 
-    "getType(uint256)"(
+    "getWeakness(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<{
@@ -206,19 +255,32 @@ export class MonsterBook extends Contract {
     }>;
   };
 
+  getAction1(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  "getAction1(uint256)"(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  getAction2(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  "getAction2(uint256)"(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
   getAlignment(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
 
   "getAlignment(uint256)"(
-    monsterId: BigNumberish,
-    overrides?: CallOverrides
-  ): Promise<string>;
-
-  getArmor(monsterId: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-  "getArmor(uint256)"(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
@@ -233,6 +295,16 @@ export class MonsterBook extends Contract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  getLocomotion(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
+  "getLocomotion(uint256)"(
+    monsterId: BigNumberish,
+    overrides?: CallOverrides
+  ): Promise<string>;
+
   getName(monsterId: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
   "getName(uint256)"(
@@ -240,29 +312,29 @@ export class MonsterBook extends Contract {
     overrides?: CallOverrides
   ): Promise<string>;
 
-  getSenses(
+  getSize(monsterId: BigNumberish, overrides?: CallOverrides): Promise<string>;
+
+  "getSize(uint256)"(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  "getSenses(uint256)"(
+  getSpecialAbility(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  getSubtype(
+  "getSpecialAbility(uint256)"(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  "getSubtype(uint256)"(
+  getWeakness(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
 
-  getType(monsterId: BigNumberish, overrides?: CallOverrides): Promise<string>;
-
-  "getType(uint256)"(
+  "getWeakness(uint256)"(
     monsterId: BigNumberish,
     overrides?: CallOverrides
   ): Promise<string>;
@@ -275,22 +347,32 @@ export class MonsterBook extends Contract {
   ): Promise<BigNumber>;
 
   callStatic: {
+    getAction1(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "getAction1(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    getAction2(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "getAction2(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     getAlignment(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
     "getAlignment(uint256)"(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
-
-    getArmor(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<string>;
-
-    "getArmor(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
@@ -305,6 +387,16 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    getLocomotion(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
+    "getLocomotion(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<string>;
+
     getName(
       monsterId: BigNumberish,
       overrides?: CallOverrides
@@ -315,32 +407,32 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<string>;
 
-    getSenses(
+    getSize(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    "getSenses(uint256)"(
+    "getSize(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    getSubtype(
+    getSpecialAbility(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    "getSubtype(uint256)"(
+    "getSpecialAbility(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    getType(
+    getWeakness(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
 
-    "getType(uint256)"(
+    "getWeakness(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<string>;
@@ -356,22 +448,32 @@ export class MonsterBook extends Contract {
   filters: {};
 
   estimateGas: {
+    getAction1(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "getAction1(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    getAction2(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "getAction2(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getAlignment(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
     "getAlignment(uint256)"(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    getArmor(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
-    "getArmor(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -386,6 +488,16 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
+    getLocomotion(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    "getLocomotion(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
     getName(
       monsterId: BigNumberish,
       overrides?: CallOverrides
@@ -396,32 +508,32 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getSenses(
+    getSize(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "getSenses(uint256)"(
+    "getSize(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getSubtype(
+    getSpecialAbility(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "getSubtype(uint256)"(
+    "getSpecialAbility(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    getType(
+    getWeakness(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    "getType(uint256)"(
+    "getWeakness(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -435,22 +547,32 @@ export class MonsterBook extends Contract {
   };
 
   populateTransaction: {
+    getAction1(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "getAction1(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    getAction2(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "getAction2(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getAlignment(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
     "getAlignment(uint256)"(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    getArmor(
-      monsterId: BigNumberish,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
-    "getArmor(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -465,6 +587,16 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
+    getLocomotion(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    "getLocomotion(uint256)"(
+      monsterId: BigNumberish,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
     getName(
       monsterId: BigNumberish,
       overrides?: CallOverrides
@@ -475,32 +607,32 @@ export class MonsterBook extends Contract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getSenses(
+    getSize(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "getSenses(uint256)"(
+    "getSize(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getSubtype(
+    getSpecialAbility(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "getSubtype(uint256)"(
+    "getSpecialAbility(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    getType(
+    getWeakness(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    "getType(uint256)"(
+    "getWeakness(uint256)"(
       monsterId: BigNumberish,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;

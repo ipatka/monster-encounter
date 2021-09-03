@@ -27,9 +27,9 @@ import "./MonsterBook.sol";
 /// @author Isaac Patka, Dekan Brown, Sam Kuhlmann, arentweall
 /// @notice This contract is heavily inspired by Sam Mason de Caires' Maps contract which in turn was...
 ///  heavily inspired by Dom Hofmann's Loot Project and allows for the on chain creation of maps and there various waypoints along the journey.
-contract MonsterEncounters is ERC721Enumerable, ReentrancyGuard, Ownable {
+contract MonsterMaps is ERC721Enumerable, ReentrancyGuard, Ownable {
     IMonsterBook monsterBook;
-    constructor(address _monsterBook) ERC721("MonsterBook", "MONSTERS") {
+    constructor(address _monsterBook) ERC721("MonsterMaps", "MONSTERMAPS") {
       monsterBook = IMonsterBook(_monsterBook);
     }
 
@@ -86,7 +86,7 @@ contract MonsterEncounters is ERC721Enumerable, ReentrancyGuard, Ownable {
         uint256 waypointCount = getWaypointCount(tokenId);
 
         string memory mapName = string(
-            abi.encodePacked("Monster Encounters #", Strings.toString(tokenId))
+            abi.encodePacked("Monster Map #", Strings.toString(tokenId))
         );
 
         string memory monsterIdSVGs;
@@ -95,7 +95,7 @@ contract MonsterEncounters is ERC721Enumerable, ReentrancyGuard, Ownable {
             uint256 ySpace = 20 * (index + 1);
             monsterIdSVGs = string(
                 abi.encodePacked(
-                    '<text dominant-baseline="middle" text-anchor="middle" fill="red" x="50%" y="',
+                    '<text dominant-baseline="middle" text-anchor="middle" fill="#ff3864" x="50%" y="',
                     Strings.toString(ySpace),
                     'px">',
                     monsterBook.getName(monsterId),
@@ -112,7 +112,7 @@ contract MonsterEncounters is ERC721Enumerable, ReentrancyGuard, Ownable {
             uint256[2] memory coord = getWaypointCoord(tokenId, index);
             waypointPointsSVGs = string(
                 abi.encodePacked(
-                    '<circle fill="red" cx="',
+                    '<circle fill="#ff3864" cx="',
                     Strings.toString(coord[0]),
                     '" cy="',
                     Strings.toString(coord[1]),
@@ -148,7 +148,7 @@ contract MonsterEncounters is ERC721Enumerable, ReentrancyGuard, Ownable {
                                 mapName,
                                 '", "image":"',
                                 image,
-                                '", "description": "Monsters are (pseudo) randomly placed on a map at the waypoints along an adventurers journey. All data is stored on chain. Use Monsters however you want and pair with your favourite adventure Loot."}'
+                                '", "description": "Monsters are (pseudo) randomly placed on a map at the waypoints along an adventurers journey. All data is stored on chain. Use Monsters however you want and pair with your favourite adventure Loot and Map."}'
                             )
                         )
                     )

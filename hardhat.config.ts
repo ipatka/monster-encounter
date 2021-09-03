@@ -2,6 +2,7 @@ import { task, HardhatUserConfig } from "hardhat/config";
 import "@nomiclabs/hardhat-waffle";
 import "@nomiclabs/hardhat-ethers";
 import "hardhat-gas-reporter"
+import "@nomiclabs/hardhat-etherscan";
 
 import * as fs from 'fs'
 import "hardhat-typechain";
@@ -42,7 +43,7 @@ const config: HardhatUserConfig = {
       */
     },
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad", //<---- YOUR INFURA ID! (or it won't work)
+      url: "https://rinkeby.infura.io/v3/ae4d742b6f8445bc8817988d18ff3b65", //<---- YOUR INFURA ID! (or it won't work)
       accounts: {
         mnemonic: mnemonic(),
       },
@@ -95,6 +96,11 @@ const config: HardhatUserConfig = {
         mnemonic: mnemonic(),
       },
     },
+  },
+  etherscan: {
+    // Your API key for Etherscan
+    // Obtain one at https://etherscan.io/
+    apiKey: "61ED96HQAY6PASTEWRXN6AMYQEKM8SYTRY"
   },
   solidity: {
     compilers: [
