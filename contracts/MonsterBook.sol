@@ -97,9 +97,11 @@ contract MonsterBook is ERC721Enumerable, ReentrancyGuard, Ownable {
             uint256 ySpace = 20 * (index + 1);
             monsterIdSVGs = string(
                 abi.encodePacked(
-                    '<text dominant-baseline="middle" text-anchor="middle" fill="white" x="50%" y="',
+                    '<text dominant-baseline="middle" text-anchor="middle" fill="red" x="50%" y="',
                     Strings.toString(ySpace),
                     'px">',
+                    getName(monsterId),
+                    ' #: ',
                     Strings.toString(monsterId),
                     "</text>",
                     monsterIdSVGs

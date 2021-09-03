@@ -10,12 +10,12 @@ async function main() {
   const MonsterBook = await ethers.getContractFactory('MonsterBook')
   const monsterBook = (await MonsterBook.deploy()) as MonsterBook
 
-  await monsterBook.discoverEncounters(100)
-  const uri = await monsterBook.tokenURI(100)
+  await monsterBook.discoverEncounters(200)
+  const uri = await monsterBook.tokenURI(200)
   console.log({uri})
-
-  const monsterIds = [5320, 1440, 910, 9432, 7263, 9787, 4094]
   
+  const monsterIds = await monsterBook.getMonsterIds(200)
+
   for (let index = 0; index < monsterIds.length; index++) {
     const monsterURI = await monsterBook.monsterURI(monsterIds[index])
     console.log({monsterURI})
